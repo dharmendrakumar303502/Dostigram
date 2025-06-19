@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -40,7 +41,7 @@ export default function LoginForm() {
         title: 'Login Successful',
         description: 'Welcome back!',
       });
-      router.push('/chat'); // Redirect to chat or dashboard
+      router.push('/chat'); // Redirect to chat
     } catch (error: any) {
       console.error('Login error:', error);
       toast({
