@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Heart, Users, Zap } from 'lucide-react';
@@ -16,12 +17,12 @@ export default function HomePage() {
             Connect with your friends, classmates, and colleagues in real-time. Simple, fast, and fun messaging for students.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/auth/signup" passHref>
+            <Link href="/signup" passHref>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 Get Started Free
               </Button>
             </Link>
-            <Link href="/auth/login" passHref>
+            <Link href="/login" passHref>
               <Button size="lg" variant="outline">
                 Login to Your Account
               </Button>
@@ -53,7 +54,7 @@ export default function HomePage() {
        <section className="py-16 md:py-24">
         <h2 className="text-3xl md:text-4xl font-headline font-semibold mb-6">Ready to Connect?</h2>
         <p className="text-lg text-muted-foreground mb-8">Join Dostigram today and start chatting!</p>
-        <Link href="/auth/signup" passHref>
+        <Link href="/signup" passHref>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
             Sign Up Now
           </Button>
