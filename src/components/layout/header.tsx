@@ -32,7 +32,7 @@ export default function Header() {
     }
     try {
       await signOut(auth);
-      router.push('/auth/login');
+      router.push('/login'); // Redirect to login after logout
     } catch (error) {
       console.error('Error signing out:', error);
     }
@@ -79,13 +79,13 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link href="/auth/login" passHref>
+              <Link href="/login" passHref> {/* Corrected link */}
                 <Button variant="ghost">
                   <LogIn className="w-5 h-5 mr-1" />
                   Login
                 </Button>
               </Link>
-              <Link href="/auth/signup" passHref>
+              <Link href="/signup" passHref> {/* Corrected link */}
                 <Button variant="default">
                   <UserPlus className="w-5 h-5 mr-1" />
                   Sign Up
