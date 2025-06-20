@@ -16,6 +16,7 @@ import { auth, db, storage } from '@/lib/firebase';
 import { updateProfile as updateFirebaseProfile } from 'firebase/auth';
 import { Camera, Edit3, Loader2, Save, ThumbsUp, Users, FileText } from 'lucide-react';
 import type { UserProfile } from '@/hooks/useFirebaseAuth';
+import { motion } from 'framer-motion';
 
 export default function ProfilePage() {
   const { user, userProfile, loading: authLoading, isProUser, trialDaysLeft } = useAuthContext();
@@ -85,12 +86,21 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
+    <motion.div 
+      className="container mx-auto px-4 py-8 max-w-3xl"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Card className="shadow-xl bg-card/80 backdrop-blur-lg border-primary/20 transition-all duration-300 hover:shadow-primary/20">
         <CardHeader className="pb-2">
             {!isEditing && userProfile && (
                  <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                    <div className="relative group">
+                    <motion.div 
+                      className="relative group"
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                         <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-primary shadow-lg transition-transform group-hover:scale-105">
                             <AvatarImage src={photoPreview || undefined} alt={displayName || 'User'} data-ai-hint="user avatar" />
                             <AvatarFallback className="text-5xl bg-muted">
@@ -100,7 +110,7 @@ export default function ProfilePage() {
                          {userProfile.hasActiveStory && (
                             <div className="absolute inset-0 rounded-full border-4 border-transparent ring-4 ring-pink-500 ring-offset-2 ring-offset-card transition-all group-hover:ring-pink-400"></div>
                         )}
-                    </div>
+                    </motion.div>
                     <div className="flex-grow text-center md:text-left">
                         <CardTitle className="font-headline text-3xl md:text-4xl mb-1">{displayName}</CardTitle>
                         <p className="text-muted-foreground text-sm mb-3">{user.email}</p>
@@ -180,6 +190,6 @@ export default function ProfilePage() {
       <div className="mt-8 text-center text-xs text-muted-foreground italic">
         Crafted by Dharmendra Kumar Meena – with vision for GenZ 📱
       </div>
-    </div>
+    </motion.div>
   );
 }

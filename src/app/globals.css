@@ -105,3 +105,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .card, .bg-card { /* Targeting elements with .card class or .bg-card utility */
+    @apply shadow-lg dark:shadow-primary/10; /* Example: slightly more pronounced shadow in light, primary-tinted in dark */
+  }
+}
